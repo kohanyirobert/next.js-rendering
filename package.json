@@ -3,8 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "time-server": "nodemon --watch time-server.js time-server.js"
+    "start": "next start"
   },
   "type": "module",
   "dependencies": {
@@ -13,10 +12,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "swr": "^2.1.5"
-  },
-  "devDependencies": {
-    "cors": "^2.8.5",
-    "nodemon": "^2.0.22",
-    "serve": "^14.2.0"
   }
 }

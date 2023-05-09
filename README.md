@@ -3,8 +3,7 @@
 ## Steps to run
 
 1. Run `pnpm install` to install dependencies
-1. Run `pnpm run time-server` to start a simple time server used by the frontend
-1. Run `pnpm run build && pnpm start` to properly test SSG, ISR, SSR and CSR behavior, because in development mode pages are regenerated even if they doesn't need to in certain cases
+s1. Run `pnpm run build && pnpm start` to properly test SSG, ISR, SSR and CSR behavior, because in development mode pages are regenerated even if they doesn't need to in certain cases
 
 ## Notes
 
@@ -12,6 +11,11 @@
 1. With bandwith throttled notice that clicking on the button doesn't log anything to the console (while JavaScript is being loaded)
 1. React strict mode is disabled in [`next.config.js`](next.config.js) to prevent duplicate log lines
 1. In `displayTime` the order things matter: `useSWR` would set `isLoading` to true with a fallback value present, overriding/hiding the fallback value
+1. `getTime` must be called directly in `getServerSideProps` and similar functions running on the backend, because
+
+    - It is only logical to do so (the function simulates something that accesses something on the backend)
+    - The `/api/time` endpoint cannot be called, because [`fetch` throws an error on relative URLs by design](https://github.com/vercel/next.js/issues/48344#issuecomment-1507068100)
+
 1. [`ssg-without-data`](pages/ssg-without-data.js)
 
     - Generated during build

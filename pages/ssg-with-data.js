@@ -3,9 +3,10 @@ import useSWR, { SWRConfig } from 'swr'
 import fetcher from '../lib/fetcher'
 import displayTime from '../lib/displayTime'
 import { getTimeServerUrl } from '../lib/timeServer'
+import getTime from '../lib/getTime'
 
 export async function getStaticProps() {
-  const data = await fetcher(getTimeServerUrl())
+  const data = getTime()
   console.log('Running getStaticProps', data)
   return {
     props: {

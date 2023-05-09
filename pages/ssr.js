@@ -1,10 +1,9 @@
 import Link from 'next/link'
-import fetcher from '../lib/fetcher'
 import displayTime from '../lib/displayTime'
-import { getTimeServerUrl } from '../lib/timeServer'
+import getTime from '../lib/getTime'
 
 export async function getServerSideProps({ query, res }) {
-  const data = await fetcher(getTimeServerUrl(query.timeZone))
+  const data = getTime(query.timeZone)
   console.log('Running getServerSideProps', query, data)
   res.setHeader(
     'Cache-Control',
