@@ -7,10 +7,14 @@
   },
   "type": "module",
   "dependencies": {
-    "express": "^4.18.2",
-    "next": "^13.4.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "swr": "^2.1.5"
+    "express": "4.18.2",
+    "next": "13.4.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swr": "2.1.5"
+  },
+  "devDependencies": {
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.1"
   }
 }
